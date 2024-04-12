@@ -1,10 +1,8 @@
 /*
-** Authenticate using doveadm.
-** This program reads from fd 3
-** username & password and auth-
-** enticates against dovecot.
-** Dovecot can be configured to
-** authenticate against most anything.
+** Authenticate qmail smtp/submission using doveadm.
+** This program reads from fd 3 username & password and 
+** authenticates against Dovecot. Dovecot can be configured 
+** to authenticate against most anything.
 **
 ** Program:
 **    qdovauth
@@ -14,12 +12,14 @@
 **
 ** Build:
 **    gcc -o qdovauth qdovauth.c
+**    Move to /home/vpopmail/bin
+**    chown vpopmail:vchkpw /home/vpopmail/bin/qdovauth
+**    chmod 755 /home/vpopmail/bin/qdovauth
 **    ls -l /home/vpopmail/bin/qdovauth
 **      -rwxr-xr-x. 1 vpopmail vchkpw 23168 Apr 11 23:44 /home/vpopmail/bin/qdovauth
 **
 ** Use:
-**   After updating Submission/smtps run files a 'cat' should produce the following:
-**   # cat /var/qmail/supervise/smtps/run | grep VCHKPW
+**   Edit submission/smtps run files:
 **     #VCHKPW="/home/vpopmail/bin/vchkpw"
 **     VCHKPW="/home/vpopmail/bin/qdovauth"
 **   # qmailctl stop
