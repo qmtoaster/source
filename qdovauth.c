@@ -14,11 +14,40 @@
 **
 ** Build:
 **    gcc -o qdovauth qdovauth.c
+**    ls -l /home/vpopmail/bin/qdovauth
+**      -rwxr-xr-x. 1 vpopmail vchkpw 23168 Apr 11 23:44 /home/vpopmail/bin/qdovauth
 **
 ** Use:
-**    Put in qmail submission/smtps
-**    supervise run script after
-**    qmail-smtpd to authenticate.
+**   After updating Submission/smtps run files a 'cat' should produce the following:
+**   # cat /var/qmail/supervise/smtps/run | grep VCHKPW
+**     #VCHKPW="/home/vpopmail/bin/vchkpw"
+**     VCHKPW="/home/vpopmail/bin/qdovauth"
+**   # qmailctl stop
+**   # qmailctl start
+**
+** Dovecot:
+**   Add the below services to your dovecot configuration and restart
+** service stats {
+**    unix_listener stats-reader {
+**    user = vpopmail
+**    group = vchkpw
+**    mode = 0660
+**    }
+**    unix_listener stats-writer {
+**    user = vpopmail
+**    group = vchkpw
+**    mode = 0660
+**    }
+** } 
+**
+** service auth {
+**   unix_listener auth-qmail {
+**   mode = 0600
+**   user = vpopmail
+**   group = vchkpw
+**   }
+** }
+** # systemctl restart dovecot
 **
 ** Programmer:
 **    Eric C. Broch
@@ -27,10 +56,8 @@
 ** Date:
 **    04-10-2024
 **
-** Caveat:
-**    There is no license for this program.
-**    If your world collapses after you use
-**    this program, I am not to blame.
+** License:
+**    None
 **
 */
 #include <stdio.h>
