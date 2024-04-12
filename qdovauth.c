@@ -20,7 +20,7 @@
 **
 ** Use:
 **
-**   Qmail:
+**  Qmail:
 **   Edit submission/smtps run files:
 **     #VCHKPW="/home/vpopmail/bin/vchkpw"
 **     VCHKPW="/home/vpopmail/bin/qdovauth"
