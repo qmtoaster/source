@@ -19,6 +19,8 @@
 **      -rwxr-xr-x. 1 vpopmail vchkpw 23168 Apr 11 23:44 /home/vpopmail/bin/qdovauth
 **
 ** Use:
+**
+**   Qmail:
 **   Edit submission/smtps run files:
 **     #VCHKPW="/home/vpopmail/bin/vchkpw"
 **     VCHKPW="/home/vpopmail/bin/qdovauth"
