@@ -53,7 +53,7 @@
 **
 ** Programmer:
 **    Eric C. Broch
-**    ebroch@whitehorsetc.com
+**    ebroch at whitehorsetc.com
 **
 ** Date:
 **    04-10-2024
