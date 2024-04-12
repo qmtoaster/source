@@ -1,5 +1,5 @@
 /*
-** Authenticate using dovecotadm.
+** Authenticate using doveadm.
 ** This program reads from fd 3
 ** username & password and auth-
 ** enticates against dovecot.
