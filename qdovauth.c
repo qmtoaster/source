@@ -136,7 +136,7 @@ int main( int argc, char *argv[] )
       execvp(command[0],command);
       _exit(EXECFAIL);      // exec should never return
    }
-   execvp(argv[1],argv+1);  // And now a simple way to kick off the next program
+   execvp(argv[1],argv+1);  // Run next program
    exit(CLEAN);             // Authentication succeeded
 }
 
