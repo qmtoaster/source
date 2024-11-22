@@ -39,8 +39,9 @@ int main( int argc, char *argv[] )
    read_credentials();
    int authret = auth(user, pass, host, dom, &port);
    closelog();
-   //execvp(argv[1],argv+1);
-   exit(authret);
+   if ( authret != LDAP_SUCCESS ) exit(authret);
+   execvp(argv[1],argv+1);
+   exit(LDAP_SUCCESS);
 }
 // Read username and password from fd 3, qmail-smtpd
 void read_credentials()
