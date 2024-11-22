@@ -39,7 +39,7 @@ int main( int argc, char *argv[] )
    read_credentials();
    int authret = auth(user, pass, host, dom, &port);
    closelog();
-   execvp(argv[1],argv+1);
+   //execvp(argv[1],argv+1);
    exit(authret);
 }
 // Read username and password from fd 3, qmail-smtpd
